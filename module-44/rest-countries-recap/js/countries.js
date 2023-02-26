@@ -12,11 +12,34 @@ const displayCountries = countries => {
     container.innerHTML = countriesHTML.join(' ');
 }
 
-const getCountryHtml = country => {
+// const getCountryHtml = country => {
+//     return `
+//     <div class="country">
+//         <h2>${country.name.common}</h2>
+//         <img src="${country.flags.png}" alt="" />
+//     </div>
+//     `
+// }
+
+// const getCountryHtml = country => {
+//     //option-1
+//     const { name, flags } = country;
+//     return `
+//     <div class="country">
+//         <h2>${name.common}</h2>
+//         <img src="${flags.png}" alt="" />
+//     </div>
+//     `
+// }
+
+//option-2
+const getCountryHtml = ({ name, flags, area, region }) => {
     return `
     <div class="country">
-        <h2>${country.name.common}</h2>
-        <img src="${country.flags.png}" alt="" />
+        <h2>${name.common}</h2>
+        <p>Area: ${area}</p>
+        <p>Continent: ${region}</p>
+        <img src="${flags.png}" alt="" />
     </div>
     `
 }
