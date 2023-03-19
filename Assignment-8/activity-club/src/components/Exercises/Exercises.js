@@ -5,12 +5,21 @@ import List from '../List/List';
 
 const Exercises = () => {
     const [exerciseItem, setExerciseItem] = useState([]);
+    const [list, setList] = useState([]);
 
     useEffect(() => {
         fetch('exercise.json')
             .then(res => res.json())
             .then(data => setExerciseItem(data))
     }, [])
+
+    const handleAddToList = (exercise) => {
+        const newList = [...list, exercise];
+        setList(newList);
+    }
+
+
+
     return (
         <div className='my-10'>
             <h1 className='text-2xl font-semibold text-left px-20 pb-10
@@ -20,13 +29,16 @@ const Exercises = () => {
                     {
                         exerciseItem.map(exercise => <Exercise
                             key={exercise.id}
-                            exercise= {exercise}
-                            
+                            exercise={exercise}
+                            handleAddToList={handleAddToList}
+
                         ></Exercise>)
                     }
                 </div>
-                <div className='h-60 bg-slate-500'>
-                    <List></List>
+                <div className='bg-slate-200 rounded p-2'>
+                    <List
+                        list={list}
+                    ></List>
                 </div>
             </div>
             <div>

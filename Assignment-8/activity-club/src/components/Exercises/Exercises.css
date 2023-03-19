@@ -1,5 +1,24 @@
-.exercises{
+.exercises {
     display: grid;
     grid-template-columns: 4fr 1fr;
     gap: 30px;
+}
+
+@media screen and (max-width: 1022px) {
+
+    .exercises {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .exercises {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 40px;
+        
+    }
 }
